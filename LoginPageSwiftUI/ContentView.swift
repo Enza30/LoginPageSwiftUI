@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var signInSuccess =  false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        return Group {
+            if signInSuccess {
+                UserProfileView()
+            } else {
+                LoginView(signInSuccess: $signInSuccess)
+            }
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
